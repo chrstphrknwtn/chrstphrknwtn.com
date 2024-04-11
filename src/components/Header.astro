@@ -1,0 +1,112 @@
+---
+import Icon from '@/components/Icon.astro'
+import Section from '@/components/Section.astro'
+
+const links = [
+  {
+    icon: 'email',
+    label: 'hello@chrstphrknwtn.com',
+    href: 'mailto:hello@chrstphrknwtn.com',
+    external: true
+  },
+  {
+    icon: 'github',
+    label: 'github/chrstphrknwtn',
+    href: '//github.com/chrstphrknwtn',
+    external: true
+  },
+  {
+    icon: 'linkedin',
+    label: 'in/chrstphrknwtn',
+    href: '//www.linkedin.com/in/chrstphrknwtn',
+    external: true
+  },
+]
+---
+
+<Section tag="header" className="header">
+  <h1>Christopher Newton</h1>
+  
+  <ul>
+    {links.map(link => (
+      <li>
+        <a href={link.href} target={link.external ? '_blank' : ''} rel="noreferrer">
+          {link.icon && <Icon name={link.icon} />}
+          <span class="link-label">{link.label}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Section>
+
+<style>
+  .header {
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    justify-content: space-between;
+  }
+  
+  @media screen and (min-width: 480px) { /* 30rem - 30x16 */ 
+    .header {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+  
+  h1 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+  }
+  
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  li {
+    margin-left: 1rem;
+    min-height: var(--baseLineHeight);
+    color: var(--colorForeground);
+  }
+  
+  a {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    border: 0 none;
+  }
+  
+  .link-label {
+    display: none;
+    
+  }
+  
+  .link-label:hover {
+    border-color: var(--colorAccent);
+  }
+  
+  @media screen and (min-width: 480px) {
+    ul {
+      flex-direction: column;
+    }
+    
+    li {
+      margin: 0 0 0.5rem 0;
+      color: var(--colorForegroundMuted);
+    }
+    
+    .link-label {
+      margin-left: 0.5rem;
+      display: initial;
+      color: var(--colorForeground);
+      border-bottom: 2px solid var(--colorForegroundFaded);
+      transition: border 125ms ease-in-out;
+    }
+  }
+  
+</style>

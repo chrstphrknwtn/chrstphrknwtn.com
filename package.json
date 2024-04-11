@@ -1,0 +1,21 @@
+{
+  "name": "chrstphrknwtn.com",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "astro-disable-toolbar": "astro preferences disable devToolbar"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "astro": "^4.5.16",
+    "typescript": "^5.4.4"
+  },
+  "devDependencies": {
+    "modern-normalize": "^2.0.0"
+  }
+}

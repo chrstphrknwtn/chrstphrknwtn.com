@@ -1,0 +1,35 @@
+---
+import Section from '@/components/Section.astro'
+---
+
+<Section flexGrow>
+  <h2>
+    I’m Christopher, <br class="mobile-breaks"/>a product designer <br class="mobile-breaks"/>in the Pacific Northwest.
+  </h2> 
+</Section>
+
+<style>
+  h2 {
+    max-width: 14em;
+    margin: 12vh 0 0 0; /* Approximate type at vertical mid point */
+    font-size: 2rem; /* 32px */
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    font-feature-settings: 'liga' 1;
+  }
+  
+  @media screen and (min-width: 480px) { /* 30rem */
+    .mobile-breaks {
+      display: none; 
+    }
+  }
+  
+  @media screen and (min-width: 800px) { /* 50rem */
+    h2 {
+      margin: 18vh 0 0 0;
+      font-size: 3rem;
+    }
+  }
+
+</style>

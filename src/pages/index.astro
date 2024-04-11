@@ -1,0 +1,24 @@
+---
+import Layout from '@/components/Layout.astro'
+import Header from '@/components/Header.astro'
+import Intro from '@/components/Intro.astro'
+import Section from '@/components/Section.astro'
+---
+
+<Layout>
+  <Header />
+  <Intro />
+  
+  <Section tag="footer" className="footer">
+      <p>
+        Copyright © 2024 Christopher Newton &mdash; <a href="//github.com/chrstphrknwtn/chrstphrknwtn.com">Source</a>
+      </p>
+  </Section>
+</Layout>
+
+<style>
+  .footer {
+    padding-top: 8rem;
+    padding-bottom: 1rem;
+  }
+</style>

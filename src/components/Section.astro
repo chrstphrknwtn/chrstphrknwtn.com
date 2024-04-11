@@ -1,0 +1,68 @@
+---
+interface Props {
+  className?: string
+  tag?: 'article' | 'header' | 'section' | 'footer'
+  flexGrow?: boolean
+}
+
+const { className = '', tag = 'section', flexGrow, ...rest } = Astro.props
+const classList = `${flexGrow ? 'flex-grow' : ''} ${className}`.trim()
+---
+
+{tag === 'article' && (
+  <header class={classList} {...rest}>
+    <slot />
+  </header>
+)}
+
+{tag === 'header' && (
+  <header class={classList} {...rest}>
+    <slot />
+  </header>  
+)}
+
+{tag === 'section' && (
+  <section class={classList} {...rest}>
+    <slot />
+  </section>  
+)}
+
+{tag === 'footer' && (
+  <footer class={classList} {...rest}>
+    <slot />
+  </footer>  
+)}
+
+<style>
+  article,
+  header,
+  section,
+  footer {
+    width: 100%;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+  
+  @media screen and (min-width: 480px) { /* 30rem - 30x16 */ 
+    article,
+    header,
+    section,
+    footer {
+      padding-right: 3rem;
+      padding-left: 3rem;
+    }
+  }
+  
+  @media screen and (min-width: 1280px) { /* 80 rem - 80x16 */
+    article,
+    header,
+    section,
+    footer {
+      width: 80rem;
+    }
+  }
+  
+  .flex-grow {
+    flex-grow: 1;
+  }
+</style>

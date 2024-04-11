@@ -1,0 +1,88 @@
+@import 'https://rsms.me/inter/inter.css';
+@import 'https://chrstphrknwtn.github.io/eb-garamond/eb-garamond.css';
+
+:root {
+  --rem: 16px;
+  --baseFontSize: 0.875rem; /* 14px */
+  --baseLineHeight: 1.3125rem; /* 21px */
+  --baseFontFeatures: 'onum' 1, 'pnum' 1, 'liga' 1, 'dlig' 1, 'calt' 1, 'ss07' 1,
+    'ss08' 1, 'ss01' 1, 'cv01' 1;
+
+  --colorForeground: hsl(0, 0%, 95%);
+  --colorForegroundMuted: hsla(0, 0%, 90%, 30%);
+  --colorForegroundFaded: hsla(0, 0%, 90%, 10%);
+  --colorBackground: hsl(74, 13%, 33%);
+  --colorAccent: hsl(74, 13%, 25%);
+
+  font-family: Inter, sans-serif;
+  font-feature-settings: var(--base-font-features);
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: var(--rem); /* 16px */
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  color: var(--colorForeground);
+  font-size: var(--baseFontSize);
+  font-weight: normal;
+  font-family: InterVariable, serif;
+  background-color: var(--colorBackground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+figure,
+caption {
+  font-size: var(--baseFontSize);
+  line-height: var(--baseLineHeight);
+  font-feature-settings: var(--baseFontFeatures);
+}
+
+a {
+  display: inline-block;
+  line-height: var(--baseLineHeight);
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid var(--colorForegroundMuted);
+  transition: border 75ms ease-in-out;
+}
+
+a:hover {
+  border-color: var(--colorAccent);
+}
+
+.tnum {
+  font-feature-settings: var(--baseFontFeatures), 'tnum' 1;
+}
+
+/* Misc */
+
+::selection {
+  color: var(--colorBackground);
+  background-color: var(--colorAccent);
+}
