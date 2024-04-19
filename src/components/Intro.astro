@@ -2,34 +2,47 @@
 import Section from '@/components/Section.astro'
 ---
 
-<Section flexGrow>
+<Section className="intro">
   <h2>
-    I’m Christopher, <br class="mobile-breaks"/>a product designer <br class="mobile-breaks"/>in the Pacific Northwest.
-  </h2> 
+    I’m Christopher, <br class="mobile-breaks" />a product designer
+    <br class="mobile-breaks" /> in the Pacific Northwest.
+  </h2>
 </Section>
 
 <style>
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 14rem);
+    min-height: 60vh;
+  }
+
   h2 {
     max-width: 14em;
-    margin: 12vh 0 0 0; /* Approximate type at vertical mid point */
+    margin: 3rem 0 4rem 0;
     font-size: 2rem; /* 32px */
     font-family: 'EB Garamond', serif;
     font-weight: 500;
     letter-spacing: -0.5px;
     font-feature-settings: 'liga' 1;
   }
-  
-  @media screen and (min-width: 480px) { /* 30rem */
+
+  @media screen and (min-width: 480px) {
+    /* 30rem */
     .mobile-breaks {
-      display: none; 
-    }
-  }
-  
-  @media screen and (min-width: 800px) { /* 50rem */
-    h2 {
-      margin: 18vh 0 0 0;
-      font-size: 3rem;
+      display: none;
     }
   }
 
+  @media screen and (min-width: 800px) {
+    /* 50rem */
+    .intro {
+      height: calc(100vh - 28rem);
+    }
+
+    h2 {
+      font-size: 3rem;
+    }
+  }
 </style>

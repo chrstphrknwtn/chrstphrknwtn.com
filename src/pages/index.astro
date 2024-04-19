@@ -8,15 +8,22 @@ import Section from '@/components/Section.astro'
 <Layout>
   <Header />
   <Intro />
-  
+
   <Section tag="footer" className="footer">
-      <p>
-        Copyright © 2024 Christopher Newton &mdash; <a href="//github.com/chrstphrknwtn/chrstphrknwtn.com">Source</a>
-      </p>
+    <p>
+      Copyright © 2024 Christopher Newton &mdash;{' '}
+      <a href="//github.com/chrstphrknwtn/chrstphrknwtn.com">Source</a>
+    </p>
   </Section>
 </Layout>
 
 <style>
+  h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
   .footer {
     padding-top: 8rem;
     padding-bottom: 1rem;
