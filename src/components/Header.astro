@@ -51,11 +51,13 @@ const links = [
 <style>
   .header {
     display: flex;
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-bottom: 2rem;
     justify-content: space-between;
+    align-items: center;
 
     @media (--viewport-phablet) {
+      align-items: flex-start;
       padding-top: 3rem;
       padding-bottom: 3rem;
     }
@@ -64,6 +66,7 @@ const links = [
   h1 {
     font-size: inherit;
     font-weight: inherit;
+    line-height: var(--baseLineHeight);
     margin: 0;
   }
 
@@ -72,6 +75,7 @@ const links = [
     margin: 0;
     padding: 0;
     list-style: none;
+    gap: 0.25rem;
 
     @media (--viewport-phablet) {
       flex-direction: column;
@@ -79,9 +83,8 @@ const links = [
   }
 
   li {
-    margin-left: 1rem;
     min-height: var(--baseLineHeight);
-    color: var(--colorForeground);
+    color: var(--colorAccentDark);
 
     @media (--viewport-phablet) {
       margin: 0 0 0.5rem 0;
@@ -95,17 +98,22 @@ const links = [
     color: inherit;
     text-decoration: none;
     border: 0 none;
+    padding: 0.75rem;
+
+    @media (--viewport-phablet) {
+      padding: 0;
+    }
   }
 
   .link-label {
     display: none;
     margin-left: 0.5rem;
     color: var(--colorForeground);
-    border-bottom: 2px solid var(--colorForegroundFaded);
+    border-bottom: 2px solid var(--colorAccent);
     transition: border 125ms ease-in-out;
 
     &:hover {
-      border-color: var(--colorAccent);
+      border-color: var(--colorAccentDark);
     }
 
     @media (--viewport-phablet) {
