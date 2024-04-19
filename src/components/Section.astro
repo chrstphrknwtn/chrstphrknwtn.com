@@ -2,16 +2,14 @@
 interface Props {
   className?: string
   tag?: 'article' | 'header' | 'section' | 'footer'
-  flexGrow?: boolean
 }
 
-const { className = '', tag = 'section', flexGrow, ...rest } = Astro.props
-const classList = `${flexGrow ? 'flex-grow' : ''} ${className}`.trim()
+const { className = '', tag = 'section', ...rest } = Astro.props
 ---
 
 {
   tag === 'article' && (
-    <header class={classList} {...rest}>
+    <header class={className} {...rest}>
       <slot />
     </header>
   )
@@ -19,7 +17,7 @@ const classList = `${flexGrow ? 'flex-grow' : ''} ${className}`.trim()
 
 {
   tag === 'header' && (
-    <header class={classList} {...rest}>
+    <header class={className} {...rest}>
       <slot />
     </header>
   )
@@ -27,7 +25,7 @@ const classList = `${flexGrow ? 'flex-grow' : ''} ${className}`.trim()
 
 {
   tag === 'section' && (
-    <section class={classList} {...rest}>
+    <section class={className} {...rest}>
       <slot />
     </section>
   )
@@ -35,7 +33,7 @@ const classList = `${flexGrow ? 'flex-grow' : ''} ${className}`.trim()
 
 {
   tag === 'footer' && (
-    <footer class={classList} {...rest}>
+    <footer class={className} {...rest}>
       <slot />
     </footer>
   )
@@ -47,32 +45,13 @@ const classList = `${flexGrow ? 'flex-grow' : ''} ${className}`.trim()
   section,
   footer {
     width: 100%;
+    max-width: 80rem;
     padding-right: 2rem;
     padding-left: 2rem;
-  }
 
-  @media screen and (min-width: 480px) {
-    /* 30rem - 30x16 */
-    article,
-    header,
-    section,
-    footer {
+    @media (--viewport-phablet) {
       padding-right: 3rem;
       padding-left: 3rem;
     }
-  }
-
-  @media screen and (min-width: 1280px) {
-    /* 80 rem - 80x16 */
-    article,
-    header,
-    section,
-    footer {
-      width: 80rem;
-    }
-  }
-
-  .flex-grow {
-    flex-grow: 1;
   }
 </style>

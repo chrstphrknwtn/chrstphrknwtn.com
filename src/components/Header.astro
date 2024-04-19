@@ -54,11 +54,8 @@ const links = [
     padding-top: 2rem;
     padding-bottom: 2rem;
     justify-content: space-between;
-  }
 
-  @media screen and (min-width: 480px) {
-    /* 30rem - 30x16 */
-    .header {
+    @media (--viewport-phablet) {
       padding-top: 3rem;
       padding-bottom: 3rem;
     }
@@ -75,12 +72,21 @@ const links = [
     margin: 0;
     padding: 0;
     list-style: none;
+
+    @media (--viewport-phablet) {
+      flex-direction: column;
+    }
   }
 
   li {
     margin-left: 1rem;
     min-height: var(--baseLineHeight);
     color: var(--colorForeground);
+
+    @media (--viewport-phablet) {
+      margin: 0 0 0.5rem 0;
+      color: var(--colorForegroundMuted);
+    }
   }
 
   a {
@@ -93,28 +99,17 @@ const links = [
 
   .link-label {
     display: none;
-  }
+    margin-left: 0.5rem;
+    color: var(--colorForeground);
+    border-bottom: 2px solid var(--colorForegroundFaded);
+    transition: border 125ms ease-in-out;
 
-  .link-label:hover {
-    border-color: var(--colorAccent);
-  }
-
-  @media screen and (min-width: 480px) {
-    ul {
-      flex-direction: column;
+    &:hover {
+      border-color: var(--colorAccent);
     }
 
-    li {
-      margin: 0 0 0.5rem 0;
-      color: var(--colorForegroundMuted);
-    }
-
-    .link-label {
-      margin-left: 0.5rem;
+    @media (--viewport-phablet) {
       display: initial;
-      color: var(--colorForeground);
-      border-bottom: 2px solid var(--colorForegroundFaded);
-      transition: border 125ms ease-in-out;
     }
   }
 </style>
