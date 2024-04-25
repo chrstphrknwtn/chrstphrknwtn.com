@@ -1,6 +1,0 @@
-/* Mobile-first responsive breakpoints
- * Custom Media Queries rely on postcss.config.cjs
- */
-@custom-media --viewport-phablet (min-width: 30rem); /*  480px - 30 x 16px */
-@custom-media --viewport-tablet (min-width: 48rem); /*   768px - 48 x 16px */
-@custom-media --viewport-desktop (min-width: 80rem); /* 1280px - 80 x 16px */

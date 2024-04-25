@@ -1,0 +1,4 @@
+/* Mobile-first responsive breakpoints
+ * Custom Media Queries rely on postcss.config.cjs
+ */
+@custom-media --viewport-mobile-up (min-width: 35rem);

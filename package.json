@@ -1,27 +1,38 @@
 {
-  "name": "chrstphrknwtn.com",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "astro-disable-toolbar": "astro preferences disable devToolbar"
+  "name": "ubik",
+  "engines": {
+    "node": "20.12",
+    "npm": "10.5"
   },
-  "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "astro": "^4.5.16",
-    "typescript": "^5.4.4"
+  "scripts": {
+    "dev": "tsx bin/server.ts",
+    "render": "tsx --no-cache bin/render.ts",
+    "build": "tsx bin/render.ts && tsx bin/assets.ts"
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^2.1.1",
+    "@types/connect-livereload": "^0.6.3",
+    "@types/express": "^4.17.21",
+    "@types/livereload": "^0.9.5",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.22",
     "autoprefixer": "^10.4.19",
-    "modern-normalize": "^2.0.0",
+    "chalk": "^5.3.0",
+    "chokidar": "^3.6.0",
+    "connect-livereload": "^0.6.1",
+    "dependency-tree": "^10.0.9",
+    "express": "^4.19.2",
+    "glob": "^10.3.12",
+    "livereload": "^0.9.3",
+    "portfinder": "^1.0.32",
+    "postcss": "^8.4.38",
     "postcss-custom-media": "^10.0.4",
-    "postcss-nesting": "^12.1.1",
-    "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0"
+    "postcss-modules": "^6.0.0",
+    "postcss-nesting": "^12.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.1.6"
   }
 }

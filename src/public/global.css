@@ -1,0 +1,169 @@
+@import 'https://chrstphrknwtn.github.io/eb-garamond/eb-garamond.css';
+
+:root {
+  --baseFontSize: 1.125rem; /* 18px */
+  --baseLineHeight: 1.4375; /* 23px */
+  --base-font-features: 'onum', 'pnum';
+
+  --colorForeground: hsl(0, 0%, 12%);
+  --colorBackground: white;
+  --colorLinkBackground: hsl(0, 0%, 96%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 100%; /* 16px rem */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  color: var(--colorForeground);
+  font-family: 'EB Garamond', serif;
+  font-feature-settings: var(--base-font-features);
+  font-size: var(--baseFontSize);
+  font-weight: normal;
+  background: var(--colorBackground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: var(--colorLinkBackground);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.tnum {
+  font-feature-settings: var(--base-font-features), 'tnum';
+}
+
+/* components/Header.tsx */
+.header {
+  width: 100%;
+  display: flex;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  justify-content: space-between;
+}
+
+@media (--viewport-mobile-up) {
+  .header {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.header h1 {
+  font-size: inherit;
+  font-weight: 500;
+  margin: 0;
+}
+
+.header ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+}
+
+.header li {
+  margin-left: 1rem;
+  color: var(--colorForeground);
+}
+
+.header li a {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  border: 0 none;
+  background-color: unset;
+}
+
+.link-label {
+  display: none;
+}
+
+@media (--viewport-mobile-up) {
+  .header ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header li {
+    font-size: 1rem;
+    line-height: calc(0.8 * var(--baseLineHeight));
+    margin-bottom: 0.5rem;
+  }
+
+  .header li a {
+    background-color: unset;
+  }
+
+  .link-label {
+    margin-left: 0.75rem;
+    display: initial;
+    background-color: var(--colorLinkBackground);
+  }
+
+  .header li a:hover .link-label {
+    text-decoration: underline;
+  }
+}
+
+/* Link lists */
+
+.subhead {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: var(--font-weight-regular);
+  font-size: 0.9rem;
+  font-feature-settings: var(--base-font-features), 'smcp', 'c2sc';
+  letter-spacing: 0.05em;
+}
+
+.linklist {
+  margin-top: 0;
+  margin-bottom: 3rem;
+  padding: 0;
+  list-style: none;
+}
+
+.linklist li::before {
+  content: '';
+}
+
+/* pages/index.tsx */
+
+main {
+  width: 100%;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+
+  @media (--viewport-mobile-up) {
+    max-width: 32rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+  }
+}
+
+section {
+  margin-bottom: 4rem;
+}
