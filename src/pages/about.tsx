@@ -6,7 +6,7 @@ export default () => (
     <main>
       <Header />
       <section>
-        <p>I'm a product designer in the Pacific Northwest.</p>
+        <p>And I do interesting things.</p>
       </section>
     </main>
   </Layout>

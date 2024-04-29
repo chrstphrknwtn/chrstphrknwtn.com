@@ -1,4 +1,6 @@
-export default ({ children }) => (
+import { type ReactNode } from 'react'
+
+export default ({ children }: { children: ReactNode }) => (
   <html lang="en">
     <head>
       <meta charSet="utf-8" />
