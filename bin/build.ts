@@ -1,4 +1,3 @@
-import { unlink } from 'node:fs'
 import { basename, join } from 'node:path'
 import { FileSystemRouter } from 'bun'
 import { renderToStaticMarkup } from 'react-dom/server'
@@ -9,20 +8,16 @@ const router = new FileSystemRouter({
   dir: config.pagesPath
 })
 
-const build = await Bun.build({
-  entrypoints: Object.values(router.routes).map(route => route),
-  outdir: config.distPath
-})
-
-// Convert bundle pages to HTML
-build.outputs.forEach(async artifact => {
-  const { default: Component } = await import(artifact.path)
-  const staticMarkup = renderToStaticMarkup(Component())
-  await Bun.write(join(artifact.path.replace('.js', '.html')), staticMarkup)
-  unlink(artifact.path, err => {
-    if (err) console.error(err)
+Object.values(router.routes)
+  .map(route => route)
+  .forEach(async route => {
+    const { default: Component } = await import(route)
+    const staticMarkup = renderToStaticMarkup(Component())
+    await Bun.write(
+      route.replace(config.pagesPath, config.distPath).replace('.tsx', '.html'),
+      staticMarkup
+    )
   })
-})
 
 const publicFiles = new Bun.Glob(config.publicPath + '/*.*')
 for await (const file of publicFiles.scan('.')) {
