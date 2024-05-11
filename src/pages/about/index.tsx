@@ -87,7 +87,7 @@ const Page = () => (
       <section className="intro">
         <p>
           I'm Christopher, an Australian living in the Pacific Northwest with my
-          wife and our neighbours cat.
+          wife and our neighbour's cat.
         </p>
         <p>
           I'm a product designer spending more and more time writing code and
