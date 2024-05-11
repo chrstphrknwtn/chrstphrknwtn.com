@@ -1,8 +1,8 @@
 import 'src/site.css'
 
-import Layout from 'src/components/layout'
-import Grid from 'src/components/grid'
-import Header from 'src/components/header'
+import Layout from 'src/components/Layout'
+import Grid from 'src/components/Grid'
+import Header from 'src/components/Header'
 
 import './about.css'
 
