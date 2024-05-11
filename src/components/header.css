@@ -1,0 +1,48 @@
+.header-title {
+  grid-column: span 2;
+
+  @media (--large) {
+    grid-column: span 4;
+  }
+}
+
+.header-title h1 {
+  margin-bottom: 0;
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.header-title span {
+  display: block;
+  color: var(--colorFg2);
+}
+
+.header-nav {
+  grid-column: span 2;
+
+  @media (--medium) {
+    grid-column: span 1;
+  }
+
+  @media (--large) {
+    grid-column: span 2;
+  }
+}
+
+.header-nav ul {
+  padding: 0;
+  margin: 0;
+  color: var(--colorFg2);
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+
+  @media (--medium) {
+    display: unset;
+  }
+}
+
+.header-nav a.active,
+.header-nav a:hover {
+  color: var(--colorFg);
+}

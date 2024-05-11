@@ -7,7 +7,7 @@ import Header from 'src/components/header'
 const Page = () => (
   <Layout>
     <Grid>
-      <Header route="/" />
+      <Header route="/projects" />
     </Grid>
   </Layout>
 )

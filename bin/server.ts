@@ -1,32 +1,46 @@
-import path from 'node:path'
-import { FileSystemRouter } from 'bun'
-import { renderToStaticMarkup } from 'react-dom/server'
+import { join } from 'path'
+import { build } from 'esbuild'
 import config from 'config'
+import router from 'lib/router'
+import renderPage from 'lib/render-page'
 
-const router = new FileSystemRouter({
-  style: 'nextjs',
-  dir: config.pagesPath
-})
+async function getMarkup(entryPoint: string) {
+  const result = await build({
+    entryPoints: [entryPoint],
+    bundle: true,
+    write: false,
+    outdir: config.distDir,
+    platform: 'node',
+    external: ['react', 'react-dom', '*.woff2']
+  })
 
-Bun.serve({
+  return renderPage({
+    bundleSrc: result.outputFiles[0].text,
+    cssSrc: result.outputFiles[1].contents
+  })
+}
+
+const server = Bun.serve({
   async fetch(request: Request) {
     const match = router.match(request)
+
     if (match) {
-      const PageComponent = await import(match.filePath)
-      const markup = renderToStaticMarkup(PageComponent.default())
-      return new Response(markup, {
+      const html = await getMarkup(match.filePath)
+      return new Response(html, {
         headers: { 'Content-Type': 'text/html' }
       })
     }
 
-    // For now, serve CSS and anything else we can find
+    // Serve anything in `src/public`
     const { pathname } = new URL(request.url)
-    const file = Bun.file(path.join(config.publicPath, pathname))
+    const file = Bun.file(join(config.publicPath, pathname))
     if (await file.exists()) {
       return new Response(file)
     }
 
-    // All is lost
     return new Response('Ooops', { status: 404 })
-  }
+  },
+  port: 4343
 })
+
+console.log('Ready on', server.url.href)

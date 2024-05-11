@@ -1,46 +1,41 @@
-import Icon from './Icon'
+import './header.css'
 
 const links = [
   {
-    aria: 'View my GitHub Profile',
-    icon: 'github',
-    label: 'github/chrstphrknwtn',
-    href: '//github.com/chrstphrknwtn',
-    external: true
+    label: 'Work',
+    href: '/'
   },
   {
-    aria: 'Connect with me on LinkedIn',
-    icon: 'linkedin',
-    label: 'linkedin/chrstphrknwtn',
-    href: '//www.linkedin.com/in/chrstphrknwtn',
-    external: true
+    label: 'Projects',
+    href: '/projects'
   },
   {
-    aria: 'Send me an email',
-    icon: 'email',
-    label: 'hello@chrstphrknwtn.com',
-    href: 'mailto:hello@chrstphrknwtn.com',
-    external: true
+    label: 'About',
+    href: '/about'
   }
 ]
 
-export default () => (
-  <header className="header">
-    <h1>Christopher Newton</h1>
+const header = ({ route }: { route?: string }) => (
+  <>
+    <div className="header-title">
+      <h1>
+        <a href="/">Christopher Newton</a>
+      </h1>
+      <span>Product Designer</span>
+    </div>
 
-    <ul>
-      {links.map(link => (
-        <li key={link.href}>
-          <a
-            aria-label={link.aria}
-            href={link.href}
-            target={link.external ? '_blank' : ''}
-            rel="noreferrer">
-            {link.icon && <Icon className="icon" name={link.icon} />}
-            <span className="link-label">{link.label}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </header>
+    <nav className="header-nav">
+      <ul>
+        {links.map(link => (
+          <li key={link.href}>
+            <a href={link.href} className={link.href === route ? 'active' : ''}>
+              <span>{link.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </>
 )
+
+export default header

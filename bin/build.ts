@@ -1,25 +1,40 @@
-import { basename, join } from 'node:path'
-import { FileSystemRouter } from 'bun'
-import { renderToStaticMarkup } from 'react-dom/server'
+import { build } from 'esbuild'
+import { write } from 'bun'
+
 import config from 'config'
+import router from 'lib/router'
+import renderPage from 'lib/render-page'
 
-const router = new FileSystemRouter({
-  style: 'nextjs',
-  dir: config.pagesPath
-})
+async function main() {
+  const entryPoints = Object.keys(router.routes).map(
+    route => router.routes[route]
+  )
 
-Object.values(router.routes)
-  .map(route => route)
-  .forEach(async route => {
-    const { default: Component } = await import(route)
-    const staticMarkup = renderToStaticMarkup(Component())
-    await Bun.write(
-      route.replace(config.pagesPath, config.distPath).replace('.tsx', '.html'),
-      staticMarkup
-    )
+  const result = await build({
+    entryPoints,
+    bundle: true,
+    write: false,
+    outdir: config.distDir,
+    platform: 'node',
+    external: ['react', 'react-dom', '*.woff2']
   })
 
-const publicFiles = new Bun.Glob(config.publicPath + '/*.*')
-for await (const file of publicFiles.scan('.')) {
-  Bun.write(join(config.distPath, basename(file)), Bun.file(file))
+  const pageBundles = result.outputFiles.filter(outputFile =>
+    outputFile.path.endsWith('.js')
+  )
+
+  for (const pageBundle of pageBundles) {
+    const pageCss = result.outputFiles.find(
+      outputFile => outputFile.path === pageBundle.path.replace('.js', '.css')
+    )
+    const html = renderPage({
+      bundleSrc: pageBundle.text,
+      cssSrc: pageCss?.contents,
+      minify: true
+    })
+
+    write(pageBundle.path.replace('.js', '.html'), html)
+  }
 }
+
+main()

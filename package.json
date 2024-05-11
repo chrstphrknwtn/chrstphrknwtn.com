@@ -5,16 +5,22 @@
     "npm": "10.5"
   },
   "scripts": {
-    "dev": "bun --hot bin/server.ts",
-    "build": "bun bin/build.ts"
+    "dev": "bun --watch bin/server.ts",
+    "build": "bun bin/build.ts",
+    "clean": "rm -rf dist"
   },
   "devDependencies": {
     "@types/bun": "^1.1.0",
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.73",
     "@types/react-dom": "^18.2.22",
-    "bun": "^1.1.6",
+    "bun": "^1.1.7",
+    "esbuild": "^0.21.1",
     "react": "18.3",
     "react-dom": "18.3"
+  },
+  "dependencies": {
+    "browserslist": "^4.23.0",
+    "lightningcss": "^1.24.1"
   }
 }

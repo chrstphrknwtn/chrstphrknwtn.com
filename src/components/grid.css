@@ -1,0 +1,31 @@
+:root {
+  --gridPadding: 4rem 1.5rem;
+  --gridColumns: repeat(2, 1fr);
+  --columnGap: 2rem;
+  --rowGap: 4rem;
+
+  @media (--medium) {
+    --gridPadding: 5rem 4rem;
+    --gridColumns: repeat(4, 1fr);
+    --columnGap: 3rem;
+    --rowGap: 6rem;
+  }
+
+  @media (--large) {
+    --gridColumns: repeat(6, 1fr);
+  }
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: var(--gridColumns);
+  column-gap: var(--columnGap);
+  row-gap: var(--rowGap);
+  max-width: var(--maxWidth);
+  padding: var(--gridPadding);
+}
+
+.grid .grid {
+  padding: 0;
+}
