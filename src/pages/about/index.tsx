@@ -22,18 +22,18 @@ const jobs = [
     why: 'AR Fitness Trainer, Member Platform'
   },
   {
-    who: ['Clemender BBDO', 'JWT', 'Marmalade'],
+    who: ['Clemender BBDO', 'JWT'],
     where: 'Melbourne',
     when: '2014',
     what: 'Designer, freelance',
-    why: 'Digital campaign design and production for National Australia Bank, LaTrobe University, Mazda, Mercedes Benz.'
+    why: 'Design & animation for digital campaigns, National Australia Bank, LaTrobe University, Mercedes Benz'
   },
   {
-    who: ['AJF'],
+    who: ['AJF Parntership'],
     where: 'Melbourne',
     when: '2013 → 2014',
     what: 'Designer',
-    why: 'Digital campaign design and production for Formula One, GM Holden, University of Melbourne.'
+    why: 'Design & animation for digital campaigns, Formula One, GM Holden, University of Melbourne.'
   },
   {
     who: ['RMIT'],
@@ -50,25 +50,10 @@ const jobs = [
     why: 'Fashion ecommerce'
   },
   {
-    who: [
-      'Burton',
-      'Levi‘s UK',
-      'M&C Saatchi',
-      'Tag TDI',
-      'TopShop',
-      'and more...'
-    ],
-    where: 'London',
-    when: '2006 → 2008',
+    where: 'Melbourne and London',
+    when: '2005 → 2009',
     what: 'Designer / Artworker, freelance',
-    why: 'Various in-house and agency jobs, design and production for Chivas, Disney, The Glenlivet, Kodak, Fujifilm, Vodafone, and more.'
-  },
-  {
-    who: ['Harcourt Institute'],
-    where: 'Melbourne',
-    when: '2005 → 2006',
-    what: 'Designer, freelance',
-    why: 'T-shirt graphics & illustration for Globe, Mossimo, M-One-11, and Target.'
+    why: 'Various agency, in-house and freelance print design and production jobs.'
   },
   {
     who: ['RMIT'],
@@ -113,17 +98,13 @@ const Page = () => (
         <h2 className="timeline-heading">Timeline</h2>
 
         {jobs.map(job => (
-          <section key={job.who[0]} className="timeline-item">
+          <section key={job.when} className="timeline-item">
             <header>
-              <h3>
-                {job.who.map(who => (
-                  <div key={who}>{who}</div>
-                ))}
-              </h3>
+              <h3>{job.what}</h3>
               <time>{job.when}</time>
             </header>
             <p>{job.where}</p>
-            <h4>{job.what}</h4>
+            <h4>{job.who && job.who.map(who => <div key={who}>{who}</div>)}</h4>
             <p>{job.why}</p>
           </section>
         ))}
