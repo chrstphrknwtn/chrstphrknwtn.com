@@ -1,0 +1,11 @@
+.heading {
+  grid-column: 1/-1;
+}
+
+.project {
+  grid-column: span 2;
+}
+
+.project p {
+  color: var(--colorFg2);
+}

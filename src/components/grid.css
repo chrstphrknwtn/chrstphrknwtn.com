@@ -13,6 +13,7 @@
 
   @media (--large) {
     --gridColumns: repeat(6, 1fr);
+    --columnGap: 4rem;
   }
 }
 

@@ -29,7 +29,7 @@ const header = ({ route }: { route?: string }) => (
         {links.map(link => (
           <li key={link.href}>
             <a href={link.href} className={link.href === route ? 'active' : ''}>
-              <span>{link.label}</span>
+              {link.label}
             </a>
           </li>
         ))}

@@ -9,7 +9,7 @@ export default ({ children }: Props) => (
     <head>
       <meta charSet="utf-8" />
       <meta name="robots" content="noindex, noarchive" />
-      <title>Christopher Newton · Design Engineer</title>
+      <title>Christopher Newton</title>
       <meta name="viewport" content="width=device-width" />
       <link rel="preconnect" href="https://rsms.me/" />
       <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
