@@ -1,3 +1,4 @@
+import { cp } from 'node:fs'
 import { build } from 'esbuild'
 import { write } from 'bun'
 
@@ -35,6 +36,10 @@ async function main() {
 
     write(pageBundle.path.replace('.js', '.html'), html)
   }
+
+  cp(config.publicPath, config.distDir, { recursive: true }, () => {
+    console.log('Public files copied')
+  })
 }
 
 main()
