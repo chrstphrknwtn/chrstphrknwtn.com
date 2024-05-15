@@ -1,40 +1,21 @@
 import { cp } from 'node:fs'
-import { build } from 'esbuild'
 import { write } from 'bun'
 
 import config from 'config'
 import router from 'lib/router'
-import renderPage from 'lib/render-page'
+import getMarkup from 'lib/get-markup'
 
 async function main() {
   const entryPoints = Object.keys(router.routes).map(
     route => router.routes[route]
   )
 
-  const result = await build({
-    entryPoints,
-    bundle: true,
-    write: false,
-    outdir: config.distDir,
-    platform: 'node',
-    external: ['react', 'react-dom', '*.woff2']
-  })
-
-  const pageBundles = result.outputFiles.filter(outputFile =>
-    outputFile.path.endsWith('.js')
-  )
-
-  for (const pageBundle of pageBundles) {
-    const pageCss = result.outputFiles.find(
-      outputFile => outputFile.path === pageBundle.path.replace('.js', '.css')
-    )
-    const html = renderPage({
-      bundleSrc: pageBundle.text,
-      cssSrc: pageCss?.contents,
-      minify: true
-    })
-
-    write(pageBundle.path.replace('.js', '.html'), html)
+  for (const entryPoint of entryPoints) {
+    const html = await getMarkup(entryPoint, true)
+    const distPath = entryPoint
+      .replace(config.pagesDir, config.distDir)
+      .replace('tsx', 'html')
+    write(distPath, html)
   }
 
   cp(config.publicPath, config.distDir, { recursive: true }, () => {
