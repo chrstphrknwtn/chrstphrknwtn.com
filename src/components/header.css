@@ -9,12 +9,7 @@
 .header-title h1 {
   margin-bottom: 0;
   font-size: inherit;
-  font-weight: 400;
-}
-
-.header-title span {
-  display: block;
-  color: var(--colorFg2);
+  font-weight: 600;
 }
 
 .header-nav {

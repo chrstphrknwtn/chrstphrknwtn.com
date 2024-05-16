@@ -1,30 +1,55 @@
 :root {
-  --gridPadding: 4rem 1.5rem;
-  --gridColumns: repeat(2, 1fr);
-  --columnGap: 2rem;
-  --rowGap: 4rem;
+  --gridMaxWidth: 72rem;
+  --gridPaddingV: 4rem;
+  --gridPaddingH: 1.5rem;
+  --gridColumnCount: 2;
+  --gridColumnGap: 5%;
+  --gridRowGap: 4rem;
 
   @media (--medium) {
-    --gridPadding: 5rem 4rem;
-    --gridColumns: repeat(4, 1fr);
-    --columnGap: 3rem;
-    --rowGap: 6rem;
+    --gridPaddingV: 5rem;
+    --gridPaddingH: 4rem;
+    --gridColumnCount: 4;
+    --gridRowGap: 6rem;
   }
 
   @media (--large) {
-    --gridColumns: repeat(6, 1fr);
-    --columnGap: 4rem;
+    --gridColumnCount: 6;
   }
+
+  /* Grid Lines */
+  --gridLineColor: rgba(128, 128, 128, 0.15);
+  --gridColumnStop: calc(
+    (100% - (var(--gridColumnGap) * (var(--gridColumnCount) - 1))) /
+      var(--gridColumnCount)
+  );
+  --gridGapStop: calc(var(--gridColumnStop) + var(--gridColumnGap));
 }
 
 .grid {
   width: 100%;
   display: grid;
-  grid-template-columns: var(--gridColumns);
-  column-gap: var(--columnGap);
-  row-gap: var(--rowGap);
-  max-width: var(--maxWidth);
-  padding: var(--gridPadding);
+  grid-template-columns: repeat(var(--gridColumnCount), 1fr);
+  column-gap: var(--gridColumnGap);
+  row-gap: var(--gridRowGap);
+  max-width: var(--gridMaxWidth);
+  padding: var(--gridPaddingV) var(--gridPaddingH);
+}
+
+.grid.lines {
+  background-size: calc(100% - var(--gridPaddingH) * 2);
+  background-position: center;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--gridLineColor) 0,
+    var(--gridLineColor) 0.5px,
+    transparent 0.5px,
+    transparent var(--gridColumnStop),
+    var(--gridLineColor) var(--gridColumnStop),
+    var(--gridLineColor) calc(var(--gridColumnStop) + 0.5px),
+    transparent calc(var(--gridColumnStop) + 0.5px),
+    transparent var(--gridGapStop)
+  );
 }
 
 .grid .grid {

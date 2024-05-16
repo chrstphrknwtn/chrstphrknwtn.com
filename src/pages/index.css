@@ -1,0 +1,25 @@
+.stretch {
+  min-height: 100vh;
+  grid-template-rows: auto 1fr;
+}
+
+.intro {
+  grid-column: span 4;
+}
+
+.intro h1 {
+  font-size: 3rem;
+  font-weight: 650;
+  line-height: 1.125;
+  margin-bottom: 4rem;
+
+  @media (--medium) {
+    font-size: 4rem;
+  }
+}
+
+.intro p {
+  font-size: 1.5rem;
+  line-height: 1.3125;
+  margin-bottom: 1.5rem;
+}

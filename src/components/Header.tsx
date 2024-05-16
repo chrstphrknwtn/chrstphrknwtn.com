@@ -3,7 +3,7 @@ import './header.css'
 const links = [
   {
     label: 'Work',
-    href: '/'
+    href: '/work'
   },
   {
     label: 'Projects',
@@ -15,25 +15,22 @@ const links = [
   }
 ]
 
-const header = ({ route }: { route?: string }) => (
+type Props = {
+  route?: string
+  next?: string
+  prev?: string
+}
+
+const header = ({ route, next, prev }: Props) => (
   <>
     <div className="header-title">
       <h1>
         <a href="/">Christopher Newton</a>
       </h1>
-      <span>Product Designer</span>
     </div>
 
     <nav className="header-nav">
-      <ul>
-        {links.map(link => (
-          <li key={link.href}>
-            <a href={link.href} className={link.href === route ? 'active' : ''}>
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <ul>{}</ul>
     </nav>
   </>
 )

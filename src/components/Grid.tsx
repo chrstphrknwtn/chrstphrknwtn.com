@@ -13,7 +13,7 @@ const Grid = <T extends React.ElementType>({
   className = ''
 }: Props<T>) => {
   const Component = as || 'main'
-  const classList = `grid ${className}`.trim()
+  const classList = `grid lines ${className}`.trim()
   return <Component className={classList}>{children}</Component>
 }
 

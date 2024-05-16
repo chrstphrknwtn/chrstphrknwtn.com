@@ -74,7 +74,11 @@ async function bundleDomScript(
       format: 'esm',
       minify,
       outdir: config.distDir,
-      platform: 'browser'
+      platform: 'browser',
+      define: {
+        'process.env.NODE_ENV': minify ? '"production"' : '""'
+      },
+      legalComments: 'none'
     })
 
     if (result.errors.length === 0) {
@@ -101,7 +105,7 @@ async function renderHtml({
   const markupWithCss = css
     ? insertBefore(html, '</head>', `<style>${css}</style>`)
     : html
-  const markupWithDomJs = domScript
+  const markupWithCssJs = domScript
     ? insertBefore(
         markupWithCss,
         '</body>',
@@ -109,7 +113,7 @@ async function renderHtml({
       )
     : markupWithCss
 
-  return markupWithDomJs
+  return markupWithCssJs
 }
 
 async function getMarkup(entryPoint: string, minify = false) {
@@ -119,7 +123,7 @@ async function getMarkup(entryPoint: string, minify = false) {
     write: false,
     outdir: config.distDir,
     platform: 'node',
-    external: ['react', 'react-dom', '*.woff2']
+    external: ['react', 'react-dom', '*.woff2', '*.png']
   })
 
   return renderHtml({

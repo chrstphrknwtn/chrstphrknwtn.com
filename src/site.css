@@ -2,17 +2,14 @@
 @custom-media --large (min-width: 64rem); /* 1024 */
 
 :root {
-  --baseFontSize: 1rem; /* 15px */
-  --baseLineHeight: 1.6; /* 24px */
+  --baseFontSize: 1rem; /* 16px */
+  --baseLineHeight: 1.5; /* 24px */
   --baseFontFeatures: 'liga' 1, 'calt' 1, 'ss03' 1, 'cv01' 1, 'cv09' 1, 'cv03' 1,
-    'cv04' 1;
-
-  /* Layout */
-  --maxWidth: 72rem;
+    'cv04' 1, 'cv06' 1;
 
   /** Variable also in dark mode */
   --colorFg: #1a1a1a;
-  --colorFg2: #999;
+  --colorFg2: #888;
   --colorFg3: #ddd;
   --colorBg: #fff;
   --colorBg2: #f0f0f0;
@@ -38,7 +35,7 @@
     --colorFg: #fff;
     --colorFg2: #747474;
     --colorFg3: #333;
-    --colorBg: #0f0f0f;
+    --colorBg: #020202;
     --colorBg2: #1d1d1d;
   }
 }
@@ -108,6 +105,11 @@ ol {
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 125ms ease-out;
+}
+
+a:hover {
+  color: orangered;
 }
 
 p > a {
@@ -117,4 +119,8 @@ p > a {
 img {
   max-width: 100%;
   object-fit: contain;
+}
+
+.encircle {
+  font-feature-settings: 'ss05' 1;
 }
