@@ -21,7 +21,10 @@ const server = Bun.serve({
       return new Response(file)
     }
 
-    return new Response('Ooops', { status: 404 })
+    return new Response(await getMarkup('src/pages/404.tsx'), {
+      status: 404,
+      headers: { 'Content-Type': 'text/html' }
+    })
   },
   port: 4343
 })

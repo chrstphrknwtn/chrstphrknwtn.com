@@ -1,0 +1,27 @@
+.fourzerofour {
+  min-height: 100vh;
+  grid-template-rows: 1fr;
+}
+
+.fourzerofour {
+  font-family: ui-monospace, monospace;
+}
+
+.fourzerofour > div {
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.escape {
+  display: inline-block;
+  padding: 1rem 1.5rem 0.25rem 0.5rem;
+  border: 2px solid var(--colorFg);
+  border-radius: 0.5rem;
+  transition: all 250ms ease-out;
+}
+
+.escape:hover {
+  border-color: orangered;
+}
