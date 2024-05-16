@@ -16,7 +16,10 @@ const Page = () => (
           I'm Christopher
         </h1>
         <p>I'm a designer living in the Pacific Northwest</p>
-        <p>Slowly but surely I'm getting a portfolio together</p>
+        <p>After six years in a startup a new portfolio is on it's way</p>
+        <p>
+          <a href="mailto:hello@chrstphrknwtn.com">hello@chrstphrknwtn.com</a>
+        </p>
       </section>
 
       <Footer route="/" />
