@@ -13,10 +13,10 @@ const Page = () => (
         <h1>
           Hi,
           <br />
-          I'm Christopher
+          I’m Christopher
         </h1>
-        <p>I'm a designer living in the Pacific Northwest</p>
-        <p>After six years in a startup a new portfolio is on it's way</p>
+        <p>I’m a designer living in the Pacific Northwest</p>
+        <p>After six years in a startup a new portfolio is on it’s way</p>
         <p>
           <a href="mailto:hello@chrstphrknwtn.com">hello@chrstphrknwtn.com</a>
         </p>
