@@ -6,9 +6,9 @@ import router from 'lib/router'
 import getMarkup from 'lib/get-markup'
 
 async function main() {
-  const entryPoints = Object.keys(router.routes).map(
-    route => router.routes[route]
-  )
+  const entryPoints = Object.keys(router.routes)
+    .filter(r => !r.includes('components'))
+    .map(route => router.routes[route])
 
   for (const entryPoint of entryPoints) {
     const html = await getMarkup(entryPoint, true)
