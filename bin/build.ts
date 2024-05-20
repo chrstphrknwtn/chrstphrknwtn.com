@@ -18,7 +18,7 @@ async function main() {
     write(distPath, html)
   }
 
-  cp(config.publicPath, config.distDir, { recursive: true }, () => {
+  cp(config.publicDir, config.distDir, { recursive: true }, () => {
     console.log('Public files copied')
   })
 }

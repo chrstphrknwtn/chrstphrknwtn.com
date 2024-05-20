@@ -16,7 +16,7 @@ const server = Bun.serve({
 
     // Serve anything in `src/public`
     const { pathname } = new URL(request.url)
-    const file = Bun.file(join(config.publicPath, pathname))
+    const file = Bun.file(join(config.publicDir, pathname))
     if (await file.exists()) {
       return new Response(file)
     }
