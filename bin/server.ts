@@ -1,14 +1,14 @@
 import { join } from 'path'
 import config from 'config'
 import router from 'lib/router'
-import getMarkup from 'lib/get-markup'
+import renderPage from 'lib/render-page'
 
 const server = Bun.serve({
   async fetch(request: Request) {
     const match = router.match(request)
 
     if (match) {
-      const html = await getMarkup(match.filePath)
+      const html = await renderPage(match.filePath)
       return new Response(html, {
         headers: { 'Content-Type': 'text/html' }
       })
@@ -21,7 +21,7 @@ const server = Bun.serve({
       return new Response(file)
     }
 
-    return new Response(await getMarkup('src/pages/404.tsx'), {
+    return new Response(await renderPage('src/pages/404.tsx'), {
       status: 404,
       headers: { 'Content-Type': 'text/html' }
     })

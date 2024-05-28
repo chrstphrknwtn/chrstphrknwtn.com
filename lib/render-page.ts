@@ -13,11 +13,49 @@ type cssTransformArgs = {
   minify?: boolean
 }
 
-type renderPageArgs = {
-  entryPoint: string
-  bundleSrc: string
-  cssSrc?: Uint8Array
-  minify?: boolean
+/**
+ * Renders a page to a hydratable HTML string.
+ *
+ * @param entryPoint The entry point of the page to render.
+ * @param [minify=false] Flag indicating whether the output should be minified.
+ * @returns A promise that resolves to the rendered HTML string.
+ */
+async function renderPage(
+  entryPoint: string,
+  minify: boolean = false
+): Promise<string> {
+  const result = await build({
+    entryPoints: [entryPoint],
+    bundle: true,
+    write: false,
+    outdir: config.distDir,
+    platform: 'node',
+    external: ['react', 'react-dom', '*.woff2', '*.png']
+  })
+
+  const pageBundle = {
+    entryPoint,
+    tsxSrc: result.outputFiles[0].text,
+    cssSrc: result.outputFiles[1].contents,
+    minify
+  }
+
+  // Render TSX page source to hydratable string
+  let html = renderBundleInVm(pageBundle.tsxSrc)
+
+  // Inject CSS
+  const css = pageBundle.cssSrc
+    ? cssTransform({ css: pageBundle.cssSrc, minify })
+    : null
+  html = css ? insertBefore(html, '</head>', `<style>${css}</style>`) : html
+
+  // Inject DOM script if present
+  const domScript = await bundleDomScript(entryPoint, minify)
+  html = domScript
+    ? insertBefore(html, '</body>', `<script>${domScript}</script>`)
+    : html
+
+  return html
 }
 
 function insertBefore(string: string, substring: string, content: string) {
@@ -78,7 +116,8 @@ async function bundleDomScript(
       define: {
         'process.env.NODE_ENV': minify ? '"production"' : '""'
       },
-      legalComments: 'none'
+      legalComments: 'none',
+      external: ['*.png', '*.jpg']
     })
 
     if (result.errors.length === 0) {
@@ -91,47 +130,4 @@ async function bundleDomScript(
   return null
 }
 
-async function renderHtml({
-  entryPoint,
-  bundleSrc,
-  cssSrc,
-  minify = false
-}: renderPageArgs): Promise<string> {
-  const html = renderBundleInVm(bundleSrc)
-  const css = cssSrc ? cssTransform({ css: cssSrc, minify }) : null
-  // DOM script dependency injection
-  const domScript = await bundleDomScript(entryPoint, minify)
-
-  const markupWithCss = css
-    ? insertBefore(html, '</head>', `<style>${css}</style>`)
-    : html
-  const markupWithCssJs = domScript
-    ? insertBefore(
-        markupWithCss,
-        '</body>',
-        `<script type="module">${domScript}</script>`
-      )
-    : markupWithCss
-
-  return markupWithCssJs
-}
-
-async function getMarkup(entryPoint: string, minify = false) {
-  const result = await build({
-    entryPoints: [entryPoint],
-    bundle: true,
-    write: false,
-    outdir: config.distDir,
-    platform: 'node',
-    external: ['react', 'react-dom', '*.woff2', '*.png']
-  })
-
-  return renderHtml({
-    entryPoint,
-    bundleSrc: result.outputFiles[0].text,
-    cssSrc: result.outputFiles[1].contents,
-    minify
-  })
-}
-
-export default getMarkup
+export default renderPage

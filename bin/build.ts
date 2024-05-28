@@ -1,9 +1,10 @@
 import { cp } from 'node:fs'
+import { relative } from 'node:path'
 import { write } from 'bun'
 
 import config from 'config'
 import router from 'lib/router'
-import getMarkup from 'lib/get-markup'
+import renderPage from 'lib/render-page'
 
 async function main() {
   const entryPoints = Object.keys(router.routes)
@@ -11,11 +12,12 @@ async function main() {
     .map(route => router.routes[route])
 
   for (const entryPoint of entryPoints) {
-    const html = await getMarkup(entryPoint, true)
+    const html = await renderPage(entryPoint, true)
     const distPath = entryPoint
       .replace(config.pagesDir, config.distDir)
       .replace('tsx', 'html')
     write(distPath, html)
+    console.log('Page Rendered:', relative(config.distDir, distPath))
   }
 
   cp(config.publicDir, config.distDir, { recursive: true }, () => {
