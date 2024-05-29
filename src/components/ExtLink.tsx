@@ -1,3 +1,5 @@
+import './extlink.css'
+
 const ExtLink = ({
   href,
   children
@@ -5,7 +7,7 @@ const ExtLink = ({
   href: string
   children: React.ReactNode
 }) => (
-  <a href={href} target="_blank" rel="noreferrer noopener">
+  <a className="extlink" href={href} target="_blank" rel="noreferrer noopener">
     {children}
   </a>
 )

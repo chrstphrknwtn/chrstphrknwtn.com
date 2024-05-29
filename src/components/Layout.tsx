@@ -11,8 +11,6 @@ export default ({ children }: Props) => (
       <meta name="robots" content="noindex, noarchive" />
       <title>Christopher Newton</title>
       <meta name="viewport" content="width=device-width" />
-      <link rel="preconnect" href="https://rsms.me/" />
-      <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     </head>
     <body>{children}</body>
   </html>

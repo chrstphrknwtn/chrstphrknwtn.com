@@ -1,11 +1,13 @@
+@import 'https://chrstphrknwtn.github.io/eb-garamond/eb-garamond.css';
+
 @custom-media --medium (min-width: 40rem); /* 640 */
 @custom-media --large (min-width: 64rem); /* 1024 */
 
 :root {
-  --baseFontSize: 1rem; /* 16px */
-  --baseLineHeight: 1.5; /* 24px */
-  --baseFontFeatures: 'liga' 1, 'calt' 1, 'ss03' 1, 'cv01' 1, 'cv09' 1, 'cv03' 1,
-    'cv04' 1, 'cv06' 1;
+  --baseFontFamily: 'EB Garamond', Times, sans-serif;
+  --baseFontSize: 1.1875rem; /* 19px */
+  --baseLineHeight: 1.3157894737; /* ~25px */
+  --baseFontFeatures: 'liga' 1, 'onum' 1;
 
   /** Variable also in dark mode */
   --colorFg: #1a1a1a;
@@ -19,23 +21,12 @@
   --figureBorderRadius: 0.25rem;
 }
 
-/* Webfonts */
-:root {
-  font-family: Inter, system-ui, sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  :root {
-    font-family: InterVariable, system-ui, sans-serif;
-  }
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --colorFg: #fff;
     --colorFg2: #747474;
     --colorFg3: #333;
-    --colorBg: #020202;
+    --colorBg: #1c1c1c;
     --colorBg2: #1d1d1d;
   }
 }
@@ -48,6 +39,7 @@
 
 html {
   height: 100%;
+  font-family: var(--baseFontFamily);
   font-size: 100%; /* 16px rem */
   overflow: auto;
 }
@@ -69,8 +61,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
+/* 
+ *
+ * Typography
+ *
+ */
 
+/* Typography Resets */
 h1,
 h2,
 h3,
@@ -81,12 +78,7 @@ h6 {
   font-weight: 700;
 }
 
-h1,
-h2 {
-  font-size: 2rem;
-  line-height: 1.3;
-}
-
+h2,
 h3,
 h4,
 h5,
@@ -102,10 +94,30 @@ ol {
   text-wrap: balance;
 }
 
+p {
+  letter-spacing: 0.01em;
+}
+
+/* Character Styles */
+.subhead {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  font-feature-settings: 'smcp' 1, 'c2sc' 1;
+  letter-spacing: 0.1em;
+}
+
+.smcp {
+  text-transform: lowercase;
+  font-feature-settings: var(--baseFontFeatures), 'smcp' 1, 'c2sc' 1;
+}
+
+/* Links */
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 125ms ease-out;
+  transition: color 75ms ease-out;
 }
 
 a:hover {
@@ -116,11 +128,13 @@ p > a {
   text-decoration: underline;
 }
 
+/* 
+ *
+ * Figures
+ *
+ */
+
 img {
   max-width: 100%;
   object-fit: contain;
-}
-
-.encircle {
-  font-feature-settings: 'ss05' 1;
 }

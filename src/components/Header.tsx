@@ -2,17 +2,13 @@ import './header.css'
 
 const links = [
   {
-    label: 'Work',
-    href: '/work'
-  },
-  {
-    label: 'Projects',
-    href: '/projects'
-  },
-  {
     label: 'About',
     href: '/about'
   }
+  // {
+  //   label: 'Contact',
+  //   href: '/contact'
+  // }
 ]
 
 type Props = {
@@ -22,17 +18,27 @@ type Props = {
 }
 
 const header = ({ route, next, prev }: Props) => (
-  <>
-    <div className="header-title">
+  <header className="site-header">
+    <div className="name">
       <h1>
         <a href="/">Christopher Newton</a>
       </h1>
     </div>
 
-    <nav className="header-nav">
-      <ul>{}</ul>
+    <nav className="site-nav">
+      <ul>
+        {links.map(link => (
+          <li key={link.href}>
+            <a
+              className={route === link.href ? 'disable' : ''}
+              href={link.href}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
-  </>
+  </header>
 )
 
 export default header

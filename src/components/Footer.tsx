@@ -2,20 +2,17 @@ import ExtLink from './ExtLink'
 
 import './footer.css'
 
-const Footer = ({ route }: { route?: string }) => (
+const Footer = () => (
   <nav className="footer-nav">
     <ul>
-      <li className={route === '/' ? 'disable' : ''}>
-        <a className="encircle" href="/">
-          ←
-        </a>
+      <li>
+        <ExtLink href="https://github.com/chrstphrknwtn/">
+          @chrstphrknwtn
+        </ExtLink>
       </li>
       <li>
-        <ExtLink href="https://github.com/chrstphrknwtn">GitHub</ExtLink>
-      </li>
-      <li>
-        <ExtLink href="https://www.linkedin.com/in/chrstphrknwtn">
-          LinkedIn
+        <ExtLink href="https://github.com/chrstphrknwtn/chrstphrknwtn.com">
+          Source
         </ExtLink>
       </li>
     </ul>

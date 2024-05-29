@@ -4,12 +4,11 @@
 
 .footer-nav ul {
   display: flex;
-  padding: 0;
+  padding: 4rem 0 0 0;
   gap: 2rem;
   list-style: none;
 }
 
-.footer-nav .disable a {
-  color: var(--colorFg3);
-  cursor: default;
+.footer-nav a {
+  border-bottom: 1pt solid var(--colorFg2);
 }

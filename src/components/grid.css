@@ -1,5 +1,5 @@
 :root {
-  --gridMaxWidth: 72rem;
+  --gridMaxWidth: 44rem;
   --gridPaddingV: 4rem;
   --gridPaddingH: 1.5rem;
   --gridColumnCount: 2;
@@ -10,15 +10,15 @@
     --gridPaddingV: 5rem;
     --gridPaddingH: 4rem;
     --gridColumnCount: 4;
-    --gridRowGap: 6rem;
+    --gridRowGap: 5rem;
   }
 
-  @media (--large) {
+  /* @media (--large) {
     --gridColumnCount: 6;
-  }
+  } */
 
   /* Grid Lines */
-  --gridLineColor: rgba(128, 128, 128, 0.15);
+  --gridLineColor: rgba(128, 128, 128, 0.1);
   --gridColumnStop: calc(
     (100% - (var(--gridColumnGap) * (var(--gridColumnCount) - 1))) /
       var(--gridColumnCount)
@@ -54,4 +54,10 @@
 
 .grid .grid {
   padding: 0;
+}
+
+/* Required there be only two rows in the grid */
+.grid.stretch {
+  min-height: 100vh;
+  grid-template-rows: auto 1fr;
 }

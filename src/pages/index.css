@@ -1,25 +1,18 @@
-.stretch {
-  min-height: 100vh;
-  grid-template-rows: auto 1fr;
+.projects {
+  grid-column: 1/-1;
 }
 
-.intro {
-  grid-column: span 4;
+.projects-list {
+  padding: 0;
+  list-style: none;
 }
 
-.intro h1 {
-  font-size: 3rem;
-  font-weight: 650;
-  line-height: 1.125;
-  margin-bottom: 4rem;
-
-  @media (--medium) {
-    font-size: 4rem;
-  }
+.projects-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-.intro p {
-  font-size: 1.5rem;
-  line-height: 1.3125;
-  margin-bottom: 1.5rem;
+.project-date {
+  color: var(--colorFg2);
 }

@@ -1,0 +1,4 @@
+.extlink {
+  text-decoration: none;
+  border-bottom: 1pt solid var(--colorFg2);
+}
