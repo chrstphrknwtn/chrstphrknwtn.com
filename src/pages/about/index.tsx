@@ -27,8 +27,8 @@ const Page = () => (
           engineering.
         </p>
         <p>
-          I enjoy building interactive things in code while leaning on my
-          experience as a designer.
+          These days I enjoy building interactive things in code while leaning
+          on my experience as a designer.
         </p>
       </section>
       <section className="full">
@@ -56,7 +56,7 @@ const Page = () => (
           <ExtLink href="https://rmit.edu.au">
             <span className="smcp">RMIT</span>
           </ExtLink>
-          , while freelancing in ad agencies and writing a lot ActionScript.
+          , while freelancing in ad agencies and writing a lot of ActionScript.
         </p>
         <p>
           After some extended downtime in Paris, I joined a fitness startup in
@@ -67,17 +67,18 @@ const Page = () => (
         <p>
           For the last six years I've been working on{' '}
           <ExtLink href="https://fieldfolio.com">Fieldfolio</ExtLink>, a{' '}
-          <span className="smcp">B2B</span> platform for wholesalers in
-          Australia and New Zealand, a business my family and I own and operate.
+          <span className="smcp">B2B</span> SaaS platform for wholesalers in
+          Australia and New Zealand, a healthy little business my family and I
+          own and operate.
         </p>
       </section>
 
       <section className="full">
         <h2 className="subhead">Contact</h2>
         <p>
-          206 698 6762
+          <a href="tel:+12066986762">206 698 6762</a>
           <br />
-          hello@chrstphrknwtn.com
+          <a href="mailto:hello@chrstphrknwtn.com">hello@chrstphrknwtn.com</a>
         </p>
       </section>
 

@@ -1,5 +1,3 @@
-import './extlink.css'
-
 const ExtLink = ({
   href,
   children
