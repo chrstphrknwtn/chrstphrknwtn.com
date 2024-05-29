@@ -22,9 +22,8 @@ const Page = () => (
       <section className="full">
         <h2 className="subhead">Now</h2>
         <p>
-          I'm a designer living in the Pacific Northwest{' '}
-          <span className="smcp">USA</span>, who has strayed into software
-          engineering.
+          I'm a designer who has strayed into software engineering, living in
+          the Pacific Northwest <span className="smcp">USA</span>.
         </p>
         <p>
           These days I enjoy building interactive things in code while leaning

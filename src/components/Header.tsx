@@ -20,9 +20,13 @@ type Props = {
 const header = ({ route, next, prev }: Props) => (
   <header className="site-header">
     <div className="name">
-      <h1>
-        <a href="/">Christopher Newton</a>
-      </h1>
+      {route === '/' ? (
+        <h1>Christopher Newton</h1>
+      ) : (
+        <h2>
+          <a href="/">Christopher Newton</a>
+        </h2>
+      )}
     </div>
 
     <nav className="site-nav">

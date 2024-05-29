@@ -8,7 +8,8 @@
   border: 0 none;
 }
 
-.name h1 {
+.name h1,
+.name h2 {
   margin-bottom: 0;
   font-size: inherit;
   font-weight: 500;
