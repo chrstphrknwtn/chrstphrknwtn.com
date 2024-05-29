@@ -40,11 +40,14 @@ const Page = () => (
         </p>
         <p>
           I then joined online retailer{' '}
-          <ExtLink href="https://ssense.com">SSENSE</ExtLink> in Montréal,
-          Canada, wearing many hats in true startup fashion. Everything from
-          building a photo retouching team, to redesigning & rebuilding the
-          ecommerce frontend when <span className="smcp">HTML5</span>,{' '}
-          <span className="smcp">CSS3</span> & jQuery were the new things, to
+          <ExtLink href="https://ssense.com">
+            <span className="smcp">SSENSE</span>
+          </ExtLink>{' '}
+          in Montréal, Canada, wearing many hats in true startup fashion.
+          Everything from building a photo retouching team, to redesigning and
+          rebuilding the ecommerce frontend when{' '}
+          <span className="smcp">HTML5</span>,{' '}
+          <span className="smcp">CSS3</span> and jQuery were the new things, to
           managing the creative input/output as the only designer on staff.
         </p>
         <p>
@@ -58,14 +61,14 @@ const Page = () => (
         <p>
           After some extended downtime in Paris, I joined a fitness startup in
           Berlin, prototyping interaction design concepts for an
-          augmented-reality 'Smart Trainer' product, and designing & maintaining
-          a SaaS platform for gym trainers and members.
+          augmented-reality 'Smart Trainer' product, and designing and{' '}
+          maintaining a SaaS platform for gym trainers and members.
         </p>
         <p>
           For the last six years I've been working on{' '}
-          <ExtLink href="https://fieldfolio.com">Fieldfolio</ExtLink>, a B2B
-          platform for wholesalers in Australia and New Zealand, a business my
-          family and I own and operate.
+          <ExtLink href="https://fieldfolio.com">Fieldfolio</ExtLink>, a{' '}
+          <span className="smcp">B2B</span> platform for wholesalers in
+          Australia and New Zealand, a business my family and I own and operate.
         </p>
       </section>
 
@@ -80,7 +83,9 @@ const Page = () => (
 
       <section className="full">
         <h2 className="subhead">Et cetera</h2>
-        <p>Reblogged & found images:</p>
+        <p>
+          Reblogged <em>&</em> found images:
+        </p>
         {tumblrs.map(tumblr => (
           <span key={tumblr.domain} className="tumblr">
             <dt>
