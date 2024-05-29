@@ -26,7 +26,7 @@
     --colorFg: #fff;
     --colorFg2: #747474;
     --colorFg3: #333;
-    --colorBg: #1c1c1c;
+    --colorBg: #131313;
     --colorBg2: #1d1d1d;
   }
 }
@@ -110,18 +110,21 @@ p {
 
 .smcp {
   text-transform: lowercase;
+  font-size: 1.1em;
   font-feature-settings: var(--baseFontFeatures), 'smcp' 1, 'c2sc' 1;
+  letter-spacing: -0.03em;
 }
 
 /* Links */
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 75ms ease-out;
+  transition: color 75ms ease-out, border-color 75ms ease-out;
 }
 
 a:hover {
   color: orangered;
+  border-color: orangered;
 }
 
 p > a {

@@ -12,3 +12,7 @@
 .footer-nav a {
   border-bottom: 1pt solid var(--colorFg2);
 }
+
+.footer-nav a:hover {
+  border-color: orangered;
+}
