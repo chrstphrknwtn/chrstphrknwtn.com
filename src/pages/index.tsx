@@ -4,6 +4,7 @@ import Layout from 'src/components/Layout'
 import Grid from 'src/components/Grid'
 import Header from 'src/components/Header'
 import Footer from 'src/components/Footer'
+import ExtLink from 'src/components/ExtLink'
 
 import './index.css'
 
@@ -12,15 +13,12 @@ const Page = () => (
     <Grid className="stretch">
       <Header route="/" />
       <section className="projects">
-        {/* <h2 className="subhead">Recent Projects</h2>
-        <ul className="projects-list">
-          <li>
-            <a href="/email-authoring">
-              Transactional email authoring (that doesn't suck)
-            </a>
-            <p className="project-date">2024</p>
-          </li>
-        </ul> */}
+        <p>Where's the portfolio?</p>
+        <p>
+          I've been immersed in my own{' '}
+          <ExtLink href="https://fieldfolio.com">startup</ExtLink> for the last
+          six years, and I'm pulling together case studies at this very moment.
+        </p>
       </section>
 
       <Footer />
