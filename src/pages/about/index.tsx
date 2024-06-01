@@ -22,8 +22,8 @@ const Page = () => (
       <section className="full">
         <h2 className="subhead">Now</h2>
         <p>
-          I'm a designer who has strayed into software engineering, living in
-          the Pacific Northwest <span className="smcp">USA</span>.
+          I'm a designer who has strayed into software engineering, currently
+          living in the Pacific Northwest <span className="smcp">USA</span>.
         </p>
         <p>
           These days I enjoy building interactive things in code while leaning
@@ -34,8 +34,8 @@ const Page = () => (
         <h2 className="subhead">Before now</h2>
         <p>
           Originally from Melbourne, Australia, I started my career in London,{' '}
-          <span className="smcp">UK</span>, freelancing as graphic artist in ad
-          agencies and design studios.
+          <span className="smcp">UK</span>, freelancing as a graphic artist in
+          ad agencies and design studios.
         </p>
         <p>
           I then joined online retailer{' '}
@@ -52,7 +52,7 @@ const Page = () => (
         <p>
           Feeling the sting of imposter syndrome, I returned to Melbourne to
           complete a Master of Design (Graphic Communication) at{' '}
-          <ExtLink href="https://rmit.edu.au">
+          <ExtLink href="https://www.rmit.edu.au">
             <span className="smcp">RMIT</span>
           </ExtLink>
           , while freelancing in ad agencies and writing a lot of ActionScript.
@@ -60,7 +60,7 @@ const Page = () => (
         <p>
           After some extended downtime in Paris, I joined a fitness startup in
           Berlin, prototyping interaction design concepts for an
-          augmented-reality 'Smart Trainer' product, and designing and{' '}
+          augmented-reality 'Smart Trainer' product, while designing and{' '}
           maintaining a SaaS platform for gym trainers and members.
         </p>
         <p>
@@ -72,7 +72,7 @@ const Page = () => (
         </p>
       </section>
 
-      <section className="full">
+      <section className="half">
         <h2 className="subhead">Contact</h2>
         <p>
           <a href="tel:+12066986762">206 698 6762</a>
@@ -81,7 +81,7 @@ const Page = () => (
         </p>
       </section>
 
-      <section className="full">
+      <section className="half">
         <h2 className="subhead">Et cetera</h2>
         <p>
           Reblogged <em>&</em> found images:
