@@ -1,14 +1,16 @@
+import Grid from './Grid'
+
 import './header.css'
 
 const links = [
   {
-    label: 'About',
-    href: '/about'
+    label: 'Work',
+    href: '/'
+  },
+  {
+    label: 'Bookshelf',
+    href: '/bookshelf'
   }
-  // {
-  //   label: 'Contact',
-  //   href: '/contact'
-  // }
 ]
 
 type Props = {
@@ -17,32 +19,34 @@ type Props = {
   prev?: string
 }
 
-const header = ({ route, next, prev }: Props) => (
-  <header className="site-header">
+const header = ({ route }: Props) => (
+  <Grid as="header" className="content-header">
     <div className="name">
       {route === '/' ? (
-        <h1>Christopher Newton</h1>
+        <h1>
+          Christopher Newton
+          <br />
+        </h1>
       ) : (
         <h2>
           <a href="/">Christopher Newton</a>
         </h2>
       )}
+      <span className="title">Product Designer</span>
     </div>
 
-    <nav className="site-nav">
+    <nav className="content-nav">
       <ul>
         {links.map(link => (
           <li key={link.href}>
-            <a
-              className={route === link.href ? 'disable' : ''}
-              href={link.href}>
+            <a className={route === link.href ? 'active' : ''} href={link.href}>
               {link.label}
             </a>
           </li>
         ))}
       </ul>
     </nav>
-  </header>
+  </Grid>
 )
 
 export default header

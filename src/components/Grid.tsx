@@ -1,4 +1,4 @@
-import { ReactNode, ComponentPropsWithoutRef, ElementType } from 'react'
+import type { ReactNode, ComponentPropsWithoutRef, ElementType } from 'react'
 import './grid.css'
 
 type Props<T extends ElementType> = {
@@ -13,7 +13,7 @@ const Grid = <T extends React.ElementType>({
   className = ''
 }: Props<T>) => {
   const Component = as || 'main'
-  const classList = `grid lines ${className}`.trim()
+  const classList = `grid ${className}`.trim()
   return <Component className={classList}>{children}</Component>
 }
 

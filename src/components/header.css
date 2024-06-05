@@ -1,10 +1,8 @@
-.site-header {
-  grid-column: 1/-1;
-  display: flex;
-  justify-content: space-between;
+.content-header {
+  padding-bottom: 3rem;
 }
 
-.site-header a {
+.content-header a {
   border: 0 none;
 }
 
@@ -12,23 +10,26 @@
 .name h2 {
   margin-bottom: 0;
   font-size: inherit;
-  font-weight: 500;
+  font-weight: 400;
 }
 
-.site-nav ul {
+.title {
+  color: var(--colorFg2);
+}
+
+.content-nav ul {
   padding: 0;
   margin: 0;
   list-style: none;
   display: flex;
-  gap: 1rem;
-  text-align: right;
-
-  @media (--medium) {
-    display: unset;
-  }
+  gap: 2rem;
 }
 
-.site-nav .disable {
-  color: var(--colorFg2);
+.content-nav li a:before {
+  content: '↳';
+}
+
+.content-nav .active {
+  color: var(--colorAccent);
   cursor: default;
 }

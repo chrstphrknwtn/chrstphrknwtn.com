@@ -1,55 +1,24 @@
 :root {
-  --gridMaxWidth: 44rem;
-  --gridPaddingV: 4rem;
-  --gridPaddingH: 1.5rem;
-  --gridColumnCount: 2;
-  --gridColumnGap: 5%;
-  --gridRowGap: 4rem;
+  --gridCenterColumnMax: var(--contentMaxWidth);
+  --gridColumnGap: 1rem;
+  --gridRowGap: 1rem;
+  --gridTemplate: 1fr;
 
-  @media (--medium) {
-    --gridPaddingV: 5rem;
-    --gridPaddingH: 4rem;
-    --gridColumnCount: 4;
-    --gridRowGap: 5rem;
+  /* 64rem - 1024p */
+  @media (--large) {
+    --gridTemplate: minmax(0, 1fr) minmax(auto, var(--gridCenterColumnMax))
+      minmax(0, 1fr);
   }
-
-  /* @media (--large) {
-    --gridColumnCount: 6;
-  } */
-
-  /* Grid Lines */
-  --gridLineColor: rgba(128, 128, 128, 0.1);
-  --gridColumnStop: calc(
-    (100% - (var(--gridColumnGap) * (var(--gridColumnCount) - 1))) /
-      var(--gridColumnCount)
-  );
-  --gridGapStop: calc(var(--gridColumnStop) + var(--gridColumnGap));
 }
 
 .grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(var(--gridColumnCount), 1fr);
+  grid-template-columns: var(--gridTemplate);
   column-gap: var(--gridColumnGap);
   row-gap: var(--gridRowGap);
   max-width: var(--gridMaxWidth);
   padding: var(--gridPaddingV) var(--gridPaddingH);
-}
-
-.grid.lines {
-  background-size: calc(100% - var(--gridPaddingH) * 2);
-  background-position: center;
-  background-image: repeating-linear-gradient(
-    to right,
-    var(--gridLineColor) 0,
-    var(--gridLineColor) 0.5px,
-    transparent 0.5px,
-    transparent var(--gridColumnStop),
-    var(--gridLineColor) var(--gridColumnStop),
-    var(--gridLineColor) calc(var(--gridColumnStop) + 0.5px),
-    transparent calc(var(--gridColumnStop) + 0.5px),
-    transparent var(--gridGapStop)
-  );
 }
 
 .grid .grid {

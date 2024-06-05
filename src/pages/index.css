@@ -1,18 +1,12 @@
-.projects {
-  grid-column: 1/-1;
+.intro {
+  width: 100%;
+  padding: 1.5rem;
 }
 
-.projects-list {
-  padding: 0;
-  list-style: none;
-}
-
-.projects-list li {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.project-date {
-  color: var(--colorFg2);
+.intro p {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 3rem;
 }

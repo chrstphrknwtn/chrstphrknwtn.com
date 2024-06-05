@@ -1,12 +1,48 @@
 @import 'https://chrstphrknwtn.github.io/eb-garamond/eb-garamond.css';
 
+@font-face {
+  font-family: GeistVariable;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/font/GeistVF.woff2') format('woff2');
+}
+@font-face {
+  font-family: Geist;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/font/Geist-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: Geist;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/font/Geist-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: Geist;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/font/Geist-SemiBold.woff2') format('woff2');
+}
+:root {
+  font-family: Geist, sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: GeistVariable, sans-serif;
+  }
+}
+
 @custom-media --medium (min-width: 40rem); /* 640 */
 @custom-media --large (min-width: 64rem); /* 1024 */
 
 :root {
-  --baseFontFamily: 'EB Garamond', Times, sans-serif;
-  --baseFontSize: 1.1875rem; /* 19px */
-  --baseLineHeight: 1.4; /* ~25px */
+  --baseFontSize: 1rem; /* 16px */
+  --baseLineHeight: 1.5; /* 24px */
   --baseFontFeatures: 'liga' 1, 'onum' 1;
 
   /** Variable also in dark mode */
@@ -15,8 +51,10 @@
   --colorFg3: #ccc;
   --colorBg: #fff;
   --colorBg2: #f0f0f0;
+  --colorAccent: orangered;
 
   /* Elements */
+  --contentMaxWidth: 32rem;
   --anchorBorderRadius: 0.25rem;
   --figureBorderRadius: 0.25rem;
 }
@@ -75,7 +113,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 h2,
@@ -94,26 +132,6 @@ ol {
   text-wrap: balance;
 }
 
-p {
-  letter-spacing: 0.01em;
-}
-
-/* Character Styles */
-.subhead {
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1.5;
-  font-feature-settings: 'smcp' 1, 'c2sc' 1;
-  letter-spacing: 0.1em;
-}
-
-.smcp {
-  text-transform: lowercase;
-  font-feature-settings: var(--baseFontFeatures), 'smcp' 1, 'c2sc' 1;
-  letter-spacing: -0.03em;
-}
-
 /* Links */
 a {
   color: inherit;
@@ -123,8 +141,8 @@ a {
 }
 
 a:hover {
-  color: orangered;
-  border-color: orangered;
+  color: var(--colorAccent);
+  border-color: var(--colorAccent);
 }
 
 /* 
@@ -134,6 +152,21 @@ a:hover {
  */
 
 img {
+  display: block;
   max-width: 100%;
   object-fit: contain;
+}
+
+/*
+ * Page container
+ *
+ */
+.page-container {
+  width: 100%;
+  max-width: calc(var(--contentMaxWidth) + 3rem);
+  padding: 1.5rem;
+
+  @media (--large) {
+    max-width: unset;
+  }
 }

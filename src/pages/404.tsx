@@ -1,20 +1,17 @@
 import 'src/site.css'
 
 import Layout from 'src/components/Layout'
-import Grid from 'src/components/Grid'
-
-import './404.css'
+import Header from 'src/components/Header'
 
 const Page = () => (
   <Layout>
-    <Grid className="fourzerofour">
+    <main className="page-container">
+      <Header />
       <div>
-        <a className="escape" href="/">
-          esc
-        </a>
-        <p>404 — Not Found</p>
+        <p>404</p>
+        <p>Whoops... can't find what you're looking for.</p>
       </div>
-    </Grid>
+    </main>
   </Layout>
 )
 
