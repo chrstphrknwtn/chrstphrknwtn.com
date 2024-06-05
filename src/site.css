@@ -2,28 +2,28 @@
   font-family: GeistVariable;
   font-style: normal;
   font-weight: 100 900;
-  font-display: swap;
+  font-display: auto;
   src: url('/font/GeistVF.woff2') format('woff2');
 }
 @font-face {
   font-family: Geist;
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: auto;
   src: url('/font/Geist-Regular.woff2') format('woff2');
 }
 @font-face {
   font-family: Geist;
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
+  font-display: auto;
   src: url('/font/Geist-Medium.woff2') format('woff2');
 }
 @font-face {
   font-family: Geist;
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
+  font-display: auto;
   src: url('/font/Geist-SemiBold.woff2') format('woff2');
 }
 :root {
