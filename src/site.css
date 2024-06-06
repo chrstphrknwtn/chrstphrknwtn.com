@@ -41,7 +41,7 @@
 :root {
   --baseFontSize: 1rem; /* 16px */
   --baseLineHeight: 1.5; /* 24px */
-  --baseFontFeatures: 'liga' 1, 'onum' 1;
+  --baseFontFeatures: 'liga' 1, 'ss04' 1, 'ss06' 1;
 
   /** Variable also in dark mode */
   --colorFg: #1a1a1a;
