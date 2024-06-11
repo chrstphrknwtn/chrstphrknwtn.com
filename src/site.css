@@ -45,7 +45,7 @@
 
   /** Variable also in dark mode */
   --colorFg: #1a1a1a;
-  --colorFg2: #888;
+  --colorFg2: #666;
   --colorFg3: #ccc;
   --colorBg: #fff;
   --colorBg2: #f0f0f0;
@@ -60,7 +60,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --colorFg: #fff;
-    --colorFg2: #747474;
+    --colorFg2: #666;
     --colorFg3: #555;
     --colorBg: #131313;
     --colorBg2: #1d1d1d;
