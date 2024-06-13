@@ -1,7 +1,6 @@
 import 'src/site.css'
 
 import Layout from 'src/components/Layout'
-import Grid from 'src/components/Grid'
 import Header from 'src/components/Header'
 import ExtLink from 'src/components/ExtLink'
 
@@ -89,34 +88,32 @@ const booklist = [
 
 const Page = () => (
   <Layout>
-    <main className="page-container">
+    <main className="main">
       <Header route="/bookshelf" />
-      <Grid as="article">
-        <section className="content">
-          <ul className="bookshelf">
-            {booklist.map(book => (
-              <li key="title">
-                <ExtLink href={book.href}>
-                  <div className="bookshelf-item">
-                    <figure className="book-cover">
-                      <img
-                        width={book.coverImg.w}
-                        height={book.coverImg.h}
-                        src={book.coverImg.src}
-                        alt={`${book.title}, ${book.author}`}
-                      />
-                    </figure>
-                    <div>
-                      <h3>{book.title}</h3>
-                      <p>{book.author}</p>
-                    </div>
+      <section className="content">
+        <ul className="bookshelf">
+          {booklist.map(book => (
+            <li key="title">
+              <ExtLink href={book.href}>
+                <div className="bookshelf-item">
+                  <figure className="book-cover">
+                    <img
+                      width={book.coverImg.w}
+                      height={book.coverImg.h}
+                      src={book.coverImg.src}
+                      alt={`${book.title}, ${book.author}`}
+                    />
+                  </figure>
+                  <div>
+                    <h3>{book.title}</h3>
+                    <p>{book.author}</p>
                   </div>
-                </ExtLink>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </Grid>
+                </div>
+              </ExtLink>
+            </li>
+          ))}
+        </ul>
+      </section>
     </main>
   </Layout>
 )

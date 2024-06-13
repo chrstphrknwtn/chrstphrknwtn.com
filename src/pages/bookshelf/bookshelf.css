@@ -1,7 +1,9 @@
-@media (--large) {
-  .content {
-    grid-column: 2/3;
-  }
+.main {
+  width: 100%;
+  max-width: 38rem;
+  padding: 6rem 1.5rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .bookshelf {

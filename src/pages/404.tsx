@@ -3,9 +3,11 @@ import 'src/site.css'
 import Layout from 'src/components/Layout'
 import Header from 'src/components/Header'
 
+import './index.css'
+
 const Page = () => (
   <Layout>
-    <main className="page-container">
+    <main className="main">
       <Header />
       <div>
         <p>404</p>

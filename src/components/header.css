@@ -1,35 +1,16 @@
-.content-header {
-  padding-bottom: 3rem;
+.header {
+  width: 100%;
+  padding-bottom: 5rem;
 }
 
-.content-header a {
-  border: 0 none;
-}
-
-.name h1,
-.name h2 {
+.header h1,
+.header h2 {
   margin-bottom: 0;
-  font-size: inherit;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-.title {
-  color: var(--colorFg2);
-}
-
-.content-nav ul {
-  padding: 0;
+.header p {
   margin: 0;
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.content-nav li a:before {
-  content: '↳';
-}
-
-.content-nav .active {
-  color: var(--colorAccent);
-  cursor: default;
+  color: var(--colorFg2);
 }

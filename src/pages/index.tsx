@@ -1,6 +1,7 @@
 import 'src/site.css'
 
 import Layout from 'src/components/Layout'
+import Header from 'src/components/Header'
 import ExtLink from 'src/components/ExtLink'
 
 import './index.css'
@@ -8,14 +9,7 @@ import './index.css'
 const Page = () => (
   <Layout>
     <main className="main">
-      <header className="header">
-        <h1>Christopher Newton</h1>
-        <p>
-          Designer → Design Engineer
-          <br />
-          Seattle, Washington
-        </p>
-      </header>
+      <Header route="/" />
 
       <section className="intro">
         <p>
@@ -30,7 +24,7 @@ const Page = () => (
           </div>
         </div>
         <div className="contact-row">
-          <div className="contact-label">Github</div>
+          <div className="contact-label">GitHub</div>
           <div>
             <ExtLink href="https://github.com/chrstphrknwtn">
               @chrstphrknwtn
