@@ -12,11 +12,6 @@ const Page = () => (
       <Header route="/" />
 
       <section className="intro">
-        <p>
-          I've occupied the grey area between design and engineering for some
-          time, wearing many hats. The hat I like most is design engineer,
-          building tools, components and design systems for myself and others.
-        </p>
         <div className="contact-row">
           <div className="contact-label">Email</div>
           <div>

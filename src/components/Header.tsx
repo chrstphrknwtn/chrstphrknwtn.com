@@ -14,7 +14,7 @@ const header = ({ route }: Props) => (
       </h2>
     )}
     <p>
-      Designer → Design Engineer
+      Product Designer
       <br />
       Seattle, Washington
     </p>
