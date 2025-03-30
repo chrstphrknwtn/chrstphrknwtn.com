@@ -1,11 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/about",
-      "destination": "/",
-      "permanent": false
-    }
-  ],
   "headers": [
     {
       "source": "/(.+\\.woff2)",

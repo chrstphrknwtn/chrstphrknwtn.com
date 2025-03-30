@@ -1,9 +1,14 @@
-.main {
-  width: 100%;
-  max-width: 38rem;
-  padding: 6rem 1.5rem 0 1.5rem;
+.header {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding-bottom: 5rem;
+  font-weight: 475;
+  line-height: var(--baseLineHeight);
+}
+
+.header span {
+  color: var(--colorFg2);
 }
 
 .intro {
@@ -14,11 +19,11 @@
   margin-bottom: 3rem;
 }
 
-.contact-row {
+.contactRow {
   display: grid;
   grid-template-columns: 5rem 1fr;
 }
 
-.contact-label {
+.contactLabel {
   color: var(--colorFg2);
 }

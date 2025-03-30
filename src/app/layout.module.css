@@ -1,0 +1,7 @@
+.rootLayout {
+  width: 100%;
+  max-width: 43rem;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}

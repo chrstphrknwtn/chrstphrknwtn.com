@@ -1,27 +1,25 @@
 {
-  "name": "ubik",
-  "engines": {
-    "node": "20.12",
-    "npm": "10.5"
-  },
+  "name": "chrstphrknwtn.com",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "dev": "bun --watch bin/server.ts",
-    "build": "bun bin/build.ts",
-    "clean": "rm -rf dist"
-  },
-  "devDependencies": {
-    "@types/bun": "^1.1.0",
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.22",
-    "bun": "^1.1.7",
-    "esbuild": "^0.21.1",
-    "react": "18.3",
-    "react-dom": "18.3"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "browserslist": "^4.23.0",
-    "lightningcss": "^1.24.1",
-    "typescript": "^5.4.5"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.2.4"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.4",
+    "@eslint/eslintrc": "^3"
   }
 }

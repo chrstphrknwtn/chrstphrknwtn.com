@@ -1,0 +1,94 @@
+@font-face {
+  font-family: Sans;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: auto;
+  src: url('/font/InterVariable.woff2') format('woff2');
+}
+:root {
+  font-family: Sans, system-ui, sans-serif;
+}
+
+:root {
+  --baseFontSize: 1rem; /* 16px */
+  --baseFontWeight: 400;
+  --baseLineHeight: 1.5rem; /* 24px */
+  --baseFontFeatures: 'dlig' 1, 'cv09' 1, 'cv03' 1, 'cv04' 1, 'cv06' 1, 'cv05' 1;
+
+  /** Variable also in dark mode */
+  --colorFg: #1a1a1a;
+  --colorFg2: #666;
+  --colorBg: #fff;
+  --colorBg2: #f0f0f0;
+
+  /* Elements */
+  --contentMaxWidth: 32rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --colorFg: #fff;
+    --colorFg2: #aaa;
+
+    --colorBg: #111;
+    --colorBg2: #1d1d1d;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-family: var(--baseFontFamily);
+  font-size: 100%; /* 16px rem */
+  overflow: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-feature-settings: var(--baseFontFeatures);
+  font-size: var(--baseFontSize);
+  line-height: var(--baseLineHeight);
+  font-weight: normal;
+  color: var(--colorFg);
+  background-color: var(--colorBg);
+  overflow: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 525;
+}
+
+p,
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 75ms ease-out;
+}
+
+a:hover {
+  color: inherit;
+}
