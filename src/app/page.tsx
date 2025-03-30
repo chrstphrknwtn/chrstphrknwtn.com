@@ -1,10 +1,11 @@
+import Link from 'next/link'
 import styles from './page.module.css'
 
 export default function Home() {
   return (
     <>
       <header className={styles.header}>
-        <a href="/">Christopher Newton</a>
+        <Link href="/">Christopher Newton</Link>
         <span>Design Engineer</span>
       </header>
 
