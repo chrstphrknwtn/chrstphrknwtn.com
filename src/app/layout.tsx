@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import '@/css/site.css'
 
 import styles from './layout.module.css'
@@ -16,7 +17,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className={styles.rootLayout}>{children}</div>
+        <div className={styles.rootLayout}>
+          <header className={styles.header}>
+            <Link href="/">Christopher Newton</Link>
+            <span>Design Engineer</span>
+          </header>
+
+          {children}
+        </div>
       </body>
     </html>
   )

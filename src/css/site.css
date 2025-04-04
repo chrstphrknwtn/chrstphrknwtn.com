@@ -11,13 +11,17 @@
 
 :root {
   --baseFontSize: 1rem; /* 16px */
-  --baseFontWeight: 400;
+  --baseFontWeight: 350;
   --baseLineHeight: 1.5rem; /* 24px */
   --baseFontFeatures: 'dlig' 1, 'cv09' 1, 'cv03' 1, 'cv04' 1, 'cv06' 1, 'cv05' 1;
 
+  --monoFont: ui-monospace, monospace;
+  --monoFontSize: 0.9375rem;
+
   /** Variable also in dark mode */
   --colorFg: #1a1a1a;
-  --colorFg2: #666;
+  --colorFg2: #222;
+  --colorFg3: #bbb;
   --colorBg: #fff;
   --colorBg2: #f0f0f0;
 
@@ -28,9 +32,10 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --colorFg: #fff;
-    --colorFg2: #aaa;
+    --colorFg2: #999;
+    --colorFg3: #444;
 
-    --colorBg: #111;
+    --colorBg: rgb(15, 15, 13);
     --colorBg2: #1d1d1d;
   }
 }
@@ -43,7 +48,6 @@
 
 html {
   height: 100%;
-  font-family: var(--baseFontFamily);
   font-size: 100%; /* 16px rem */
   overflow: auto;
 }
@@ -54,10 +58,11 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  font-feature-settings: var(--baseFontFeatures);
+  font-family: var(--baseFontFamily);
   font-size: var(--baseFontSize);
+  font-weight: var(--baseFontWeight);
+  font-feature-settings: var(--baseFontFeatures);
   line-height: var(--baseLineHeight);
-  font-weight: normal;
   color: var(--colorFg);
   background-color: var(--colorBg);
   overflow: auto;
@@ -71,8 +76,15 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  font-weight: 525;
+  margin: 0 0 1rem 0;
+  font-size: var(--baseFontSize);
+  font-weight: 475;
+}
+
+p + h2,
+ul + h2,
+ol + h2 {
+  margin-top: 1.5rem;
 }
 
 p,
@@ -81,6 +93,7 @@ ol {
   margin-top: 0;
   margin-bottom: 1rem;
   text-wrap: balance;
+  color: var(--colorFg2);
 }
 
 a {
@@ -89,6 +102,22 @@ a {
   transition: color 75ms ease-out;
 }
 
-a:hover {
-  color: inherit;
+p > a,
+li > a {
+  text-decoration: underline;
+}
+
+blockquote {
+  margin: 2rem 0;
+  padding: 0 1rem;
+  border-left: solid 1pt var(--colorFg3);
+}
+
+blockquote > p {
+  margin: 0;
+}
+
+code {
+  font-family: var(--monoFont);
+  font-size: var(--monoFontSize);
 }
