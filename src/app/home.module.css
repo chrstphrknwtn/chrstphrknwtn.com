@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.links {
+  border-spacing: 0;
+}
+
+.linkLabel {
+  padding-right: 1rem;
+  color: var(--colorFg2);
+}

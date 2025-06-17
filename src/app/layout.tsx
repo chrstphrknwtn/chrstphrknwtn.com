@@ -5,7 +5,7 @@ import '@/css/site.css'
 import styles from './layout.module.css'
 
 export const metadata: Metadata = {
-  title: 'Christopher Newton',
+  title: 'Christopher Newton · Product Designer',
   robots: 'noindex, noarchive'
 }
 
@@ -20,7 +20,7 @@ export default function RootLayout({
         <div className={styles.rootLayout}>
           <header className={styles.header}>
             <Link href="/">Christopher Newton</Link>
-            <span>Design Engineer</span>
+            <span>Product Designer</span>
           </header>
 
           {children}
