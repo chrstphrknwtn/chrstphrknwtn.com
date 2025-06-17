@@ -10,8 +10,8 @@ export default function Home() {
     <section className={styles.content}>
       <p>
         My focus is how interfaces feel and behave, driven by intuition and
-        taste. Here you'll find design artefacts, interface explorations, and
-        prototypes. Less portfolio, more workshop.
+        taste. Here you&apos;ll find design artefacts, interface explorations,
+        and prototypes. Less portfolio, more workshop.
       </p>
 
       <table className={styles.links}>
